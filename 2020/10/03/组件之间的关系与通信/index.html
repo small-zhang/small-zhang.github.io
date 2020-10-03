@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>侦听器与计算属性 | oceanpower</title>
+  <title>组件之间的关系与通信 | oceanpower</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="侦听器Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的  12345678910111213141516171819&lt;body&gt;  &lt;div id&#x3D;&amp;#x27;app&amp;#x27;&gt;    &lt;button  @click&#x3D;&quot;change&quot;&gt;&amp;#123;&amp;#1">
-<meta property="og:type" content="article">
-<meta property="og:title" content="侦听器与计算属性">
-<meta property="og:url" content="http://example.com/2020/10/03/%E4%BE%A6%E5%90%AC%E5%99%A8%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="组件之间的关系与通信">
+<meta property="og:url" content="http://example.com/2020/10/03/%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="oceanpower">
-<meta property="og:description" content="侦听器Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的  12345678910111213141516171819&lt;body&gt;  &lt;div id&#x3D;&amp;#x27;app&amp;#x27;&gt;    &lt;button  @click&#x3D;&quot;change&quot;&gt;&amp;#123;&amp;#1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-03T06:00:52.000Z">
-<meta property="article:modified_time" content="2020-10-03T06:11:39.411Z">
+<meta property="article:published_time" content="2020-10-03T06:43:59.000Z">
+<meta property="article:modified_time" content="2020-10-03T06:44:19.977Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="-Vue -学习">
+<meta property="article:tag" content="-Vue - 学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="oceanpower" type="application/atom+xml">
@@ -149,32 +147,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-侦听器与计算属性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-组件之间的关系与通信" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      侦听器与计算属性
+      组件之间的关系与通信
     </h1>
   
 
         
-        <a href="/2020/10/03/%E4%BE%A6%E5%90%AC%E5%99%A8%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-10-03T06:00:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
+        <a href="/2020/10/03/%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E9%80%9A%E4%BF%A1/" class="archive-article-date">
+  	<time datetime="2020-10-03T06:43:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="侦听器"><a href="#侦听器" class="headerlink" title="侦听器"></a>侦听器</h3><p>Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。<br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的</p>
-<!--  more -->
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>  @<span class="attr">click</span>=<span class="string">&quot;change&quot;</span>&gt;</span>&#123;&#123;msg?&quot;隐藏&quot;:&quot;显示&quot;&#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:200px height:200px backgroundColor:red&quot;</span> <span class="attr">v-show</span> =<span class="string">&quot;msg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line"><span class="javascript">      msg: <span class="literal">true</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">    watch :&#123;</span><br><span class="line">      msg (newVal) &#123;</span><br><span class="line"><span class="javascript">         <span class="built_in">console</span>.log(newVal)     /!-- 当msg的值改变时候输出新的值   --/</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><p>模板内的表达式非常便利，但是设计它们的初衷是用于简单运算的。<br>在模板中放入太多的逻辑会让模板过重且难以维护。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>msg1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>msg2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>msg3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line"><span class="javascript">      msg1: <span class="string">&#x27;我是第一个数据&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      msg2: <span class="string">&#x27;我是第二个数据&#x27;</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">    computed :&#123;</span><br><span class="line">      msg3 () &#123;</span><br><span class="line"><span class="javascript">       <span class="keyword">return</span>  <span class="built_in">this</span>.msg1 + <span class="built_in">this</span>.msg2 </span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -218,7 +211,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-Vue -学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-Vue - 学习</a>
         		</li>
       		
 		</ul>
@@ -274,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/03/%E4%BE%A6%E5%90%AC%E5%99%A8%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/03/%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E9%80%9A%E4%BF%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +281,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/03/Vue%E7%9A%84%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6-%E4%B8%8E%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue的全局组件 与局部组件 nextTick
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/28/Vue%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8E%E6%B8%B2%E6%9F%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue的条件与渲染</div>
+    <a href="/2020/10/03/Vue%E7%9A%84%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6-%E4%B8%8E%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue的全局组件 与局部组件 nextTick</div>
       <i class="icon-circle-right"></i>
     </a>
   
