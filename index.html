@@ -146,6 +146,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-分享利用hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/09/%E5%88%86%E4%BA%AB%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">分享利用hexo搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/09/%E5%88%86%E4%BA%AB%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2020-10-09T13:05:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="谁不想有个个人的空间来分享与记录自己呢-？"><a href="#谁不想有个个人的空间来分享与记录自己呢-？" class="headerlink" title="谁不想有个个人的空间来分享与记录自己呢 ？"></a>谁不想有个个人的空间来分享与记录自己呢 ？</h3><h3 id="此分享极短"><a href="#此分享极短" class="headerlink" title="此分享极短"></a>此分享极短</h3><h3 id="注意-此分享是给有一定代码知识的分享！！非纯小白分享"><a href="#注意-此分享是给有一定代码知识的分享！！非纯小白分享" class="headerlink" title="注意 此分享是给有一定代码知识的分享！！非纯小白分享"></a>注意 此分享是给有一定代码知识的分享！！非纯小白分享</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>这里我们利用Node.js与Hexo两个工具来搭建<br>将两个工具下载以后配置和环境变量<br><strong>利用版本查是否安装成功</strong></p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog <span class="comment">// blog为文件夹名称</span></span><br></pre></td></tr></table></figure>
+<p>进入blog</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo i  <span class="comment">//安装依赖包</span></span><br><span class="line">hexo s <span class="comment">//hexo serve 启动项目服务</span></span><br></pre></td></tr></table></figure>
+<p>这时候我们可以进入localhost:4000来查看项目<br>在项目中可以看见提示指令</p>
+<h3 id="利用gitee-或者github进行静态托管-让你的博客让更多人看见！"><a href="#利用gitee-或者github进行静态托管-让你的博客让更多人看见！" class="headerlink" title="利用gitee 或者github进行静态托管 让你的博客让更多人看见！"></a>利用gitee 或者github进行静态托管 让你的博客让更多人看见！</h3><p>先安装一个git插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>在项目文件夹中找到_config.yml  找到下面的并修改</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attribute">repo</span>: 你的git仓库</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+
+<p>hexo d   </p>
+<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><h3 id="谢谢"><a href="#谢谢" class="headerlink" title="谢谢"></a>谢谢</h3><h3 id="可以参考b站up-CodeSheep"><a href="#可以参考b站up-CodeSheep" class="headerlink" title="可以参考b站up CodeSheep"></a>可以参考b站up CodeSheep</h3><h3 id="视频链接"><a href="#视频链接" class="headerlink" title="视频链接"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">视频链接</a></h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/09/%E5%88%86%E4%BA%AB%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vue的通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -634,6 +722,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分享</a>
               </li>
             
             <div class="clearfix"></div>
